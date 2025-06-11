@@ -12,17 +12,19 @@ sudo apt-get install -y \
     qbittorrent \
     libxcb-xinerama0 libxcb-cursor0 libnss3 \
     zstd \
+    htop \
     mpv \
     tlp \
     xclip \
     neovim
 
-sudo snap install ghostty --classic
-sudo snap install discord
-sudo snap install telegram-desktop
-sudo snap install signal-desktop
-sudo snap install rider --classic
 sudo snap install todoist
+sudo snap install ghostty --classic
+sudo snap install obsidian --classic
+sudo snap install rider --classic
+sudo snap install discord
+sudo snap install signal-desktop
+sudo snap install telegram-desktop
 sudo snap install steam
 sudo snap install slack
 

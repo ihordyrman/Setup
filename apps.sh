@@ -1,10 +1,11 @@
 #!/bin/bash
 
-sudo apt-get update
-
+sudo add-apt-repository ppa:dotnet/backports
 sudo add-apt-repository --remove ppa:yann1ck/onedrive
+
 sudo apt-get update
 sudo apt-get install -y --no-install-recommends --no-install-suggests onedrive
+sudo apt-get install -y zlib1g dotnet-sdk-9.0
 
 sudo apt-get install -y \
     vlc \
@@ -18,9 +19,8 @@ sudo apt-get install -y \
     xclip \
     neovim
 
-sudo snap install todoist
-sudo snap install ghostty --classic
-sudo snap install obsidian --classic
+sudo snapnstall todoist
+sudo snapnstall ghostty --classisudo snap install obsidian --classic
 sudo snap install rider --classic
 sudo snap install discord
 sudo snap install signal-desktop

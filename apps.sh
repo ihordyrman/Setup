@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo add-apt-repository ppa:dotnet/backports
+sudo add-apt-repository ppa:obsproject/obs-studio
 sudo add-apt-repository --remove ppa:yann1ck/onedrive
 
 sudo apt-get update
@@ -17,6 +18,10 @@ sudo apt-get install -y \
     mpv \
     tlp \
     xclip \
+    unrar \
+    obs-studio \
+    onevpl-tools \
+    libmfx-gen1.2 \
     neovim
 
 sudo snapnstall todoist
@@ -27,6 +32,8 @@ sudo snap install signal-desktop
 sudo snap install telegram-desktop
 sudo snap install steam
 sudo snap install slack
+sudo snap install yt-dlp
+sudo snap install pomotroid
 
 sudo dpkg --configure -a
 

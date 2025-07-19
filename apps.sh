@@ -9,6 +9,9 @@ sudo apt-get install -y zlib1g dotnet-sdk-9.0
 
 sudo apt-get install -y \
     vlc \
+    curl \
+    git \
+    unzip \
     iptables-persistent \
     qbittorrent \
     libxcb-xinerama0 libxcb-cursor0 libnss3 \

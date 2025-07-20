@@ -44,76 +44,38 @@ EOF
 
 cat << 'EOF' | sudo tee ~/.config/alacritty/theme.toml
 [colors.primary]
-foreground = "#575279"
-background = "#faf4ed"
-dim_foreground = "#797593"
-bright_foreground = "#575279"
+background = '#ffffff'
+foreground = '#24292f'
 
-[colors.cursor]
-text = "#575279"
-cursor = "#cecacd"
-
-[colors.vi_mode_cursor]
-text = "#575279"
-cursor = "#cecacd"
-
-[colors.search.matches]
-foreground = "#797593"
-background = "#f2e9e1"
-
-[colors.search.focused_match]
-foreground = "#faf4ed"
-background = "#d7827e"
-
-[colors.hints.start]
-foreground = "#797593"
-background = "#fffaf3"
-
-[colors.hints.end]
-foreground = "#9893a5"
-background = "#fffaf3"
-
-[colors.line_indicator]
-foreground = "None"
-background = "None"
-
-[colors.footer_bar]
-foreground = "#575279"
-background = "#fffaf3"
-
-[colors.selection]
-text = "#575279"
-background = "#dfdad9"
-
+# Normal colors
 [colors.normal]
-black = "#f2e9e1"
-red = "#b4637a"
-green = "#286983"
-yellow = "#ea9d34"
-blue = "#56949f"
-magenta = "#907aa9"
-cyan = "#d7827e"
-white = "#575279"
+black   = '#24292e'
+red     = '#d73a49'
+green   = '#28a745'
+yellow  = '#dbab09'
+blue    = '#0366d6'
+magenta = '#5a32a3'
+cyan    = '#0598bc'
+white   = '#6a737d'
 
+# Bright colors
 [colors.bright]
-black = "#9893a5"
-red = "#b4637a"
-green = "#286983"
-yellow = "#ea9d34"
-blue = "#56949f"
-magenta = "#907aa9"
-cyan = "#d7827e"
-white = "#575279"
+black   = '#959da5'
+red     = '#cb2431'
+green   = '#22863a'
+yellow  = '#b08800'
+blue    = '#005cc5'
+magenta = '#5a32a3'
+cyan    = '#3192aa'
+white   = '#d1d5da'
 
-[colors.dim]
-black = "#9893a5"
-red = "#b4637a"
-green = "#286983"
-yellow = "#ea9d34"
-blue = "#56949f"
-magenta = "#907aa9"
-cyan = "#d7827e"
-white = "#575279"
+[[colors.indexed_colors]]
+index = 16
+color = '#d18616'
+
+[[colors.indexed_colors]]
+index = 17
+color = '#cb2431'
 EOF
 
 cat << 'EOF' | sudo tee ~/.config/alacritty/font.toml

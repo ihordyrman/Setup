@@ -10,4 +10,4 @@ cd -
 
 mkdir -p ~/.config/zellij/themes
 [ ! -f "$HOME/.config/zellij/config.kdl" ] && cp ./zellij.kdl ~/.config/zellij/config.kdl
-cp ./zellij-theme.kdl ~/.config/zellij/themes/rose-pine.kdl
+cp ./zellij-theme.kdl ~/.config/zellij/themes/github-light.kdl

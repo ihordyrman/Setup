@@ -1,0 +1,60 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+	output_format = "i3bar"
+	colors = true
+	markup = pango
+	interval = 5
+}
+
+order += "load"
+order += "cpu_temperature 0"
+order += "wireless wlp2s0"
+order += "volume master"
+order += "battery 0"
+order += "time"
+
+load {
+	format = "<span background='#bfbaac'>  %5min Load  </span>"
+}
+
+cpu_temperature 0 {
+	format = "<span background='#bfbaac'>  %degrees °C CPU </span>"
+	path = "/sys/class/thermal/thermal_zone11/temp"
+}
+
+wireless wlp0s20f3 {
+	format_up = "<span background='#bfbaac'>  %essid wi-fi </span>"
+	format_down = "<span background='#bfbaac'>  Disconnected  </span>"
+}
+
+volume master {
+	format = "<span background='#bfbaac'>  %volume vol. </span>"
+	format_muted = "<span background='#bfbaac'>  Muted  </span>"
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+}
+
+battery 0 {
+	last_full_capacity = true
+	format = "<span background='#bfbaac'>  %percentage charg. </span>"
+	format_down = "No Battery"
+	status_chr = ""
+	status_bat = ""
+	status_unk = ""
+	status_full = ""
+	path = "/sys/class/power_supply/BAT%d/uevent"
+	low_threshold = 10
+	integer_battery_capacity = true
+}
+
+time {
+	format = "<span background='#bfbaac'> %H:%M %d.%m.%Y </span>"
+}

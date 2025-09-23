@@ -24,7 +24,10 @@ sudo apt-get install -y \
     obs-studio \
     onevpl-tools \
     libmfx-gen1.2 \
-    neovim
+    neovim \
+    nodejs \
+    luarocks \
+    partitionmanager
 
 sudo snap install todoist
 sudo snap install obsidian --classic
@@ -37,5 +40,7 @@ sudo snap install slack
 sudo snap install yt-dlp
 
 sudo dpkg --configure -a
+
+dotnet tool install -g fsautocomplete
 
 echo "Done!"

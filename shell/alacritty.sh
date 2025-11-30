@@ -18,6 +18,9 @@ padding.y = 14
 decorations = "None"
 opacity = 0.98
 
+[selection]
+save_to_clipboard = true
+
 [keyboard]
 bindings = [
 { key = "F11", action = "ToggleFullscreen" }
@@ -43,39 +46,34 @@ dimensions.lines = 40
 EOF
 
 cat << 'EOF' | sudo tee ~/.config/alacritty/theme.toml
+# Colors (One Dark)
+
+# Default colors
 [colors.primary]
-background = '#ffffff'
-foreground = '#24292f'
+background = '#282c34'
+foreground = '#abb2bf'
 
 # Normal colors
 [colors.normal]
-black   = '#24292e'
-red     = '#d73a49'
-green   = '#28a745'
-yellow  = '#dbab09'
-blue    = '#0366d6'
-magenta = '#5a32a3'
-cyan    = '#0598bc'
-white   = '#6a737d'
+black   = '#1e2127'
+red     = '#e06c75'
+green   = '#98c379'
+yellow  = '#d19a66'
+blue    = '#61afef'
+magenta = '#c678dd'
+cyan    = '#56b6c2'
+white   = '#abb2bf'
 
 # Bright colors
 [colors.bright]
-black   = '#959da5'
-red     = '#cb2431'
-green   = '#22863a'
-yellow  = '#b08800'
-blue    = '#005cc5'
-magenta = '#5a32a3'
-cyan    = '#3192aa'
-white   = '#d1d5da'
-
-[[colors.indexed_colors]]
-index = 16
-color = '#d18616'
-
-[[colors.indexed_colors]]
-index = 17
-color = '#cb2431'
+black   = '#5c6370'
+red     = '#e06c75'
+green   = '#98c379'
+yellow  = '#d19a66'
+blue    = '#61afef'
+magenta = '#c678dd'
+cyan    = '#56b6c2'
+white   = '#ffffffEOF
 EOF
 
 cat << 'EOF' | sudo tee ~/.config/alacritty/font.toml

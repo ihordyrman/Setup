@@ -1,20 +1,31 @@
 #!/bin/bash
 
+sudo apt install hstr -y
 curl -fsSL https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh | bash -s -- JetBrainsMono
+curl -s https://ohmyposh.dev/install.sh | bash -s
 
 wget "https://raw.githubusercontent.com/rupa/z/master/z.sh"
 mv z.sh ~/.z.sh
 
-echo "" >> ~/.bashrc
-echo "alias k='kubectl'"
+hstr --show-bash-configuration >> ~/.bashrc
 
-echo "" >> ~/.bashrc
-echo "discord_update() {" >> ~/.bashrc
-echo "  curl -L -X GET --output \"/home/ihor/Downloads/discord-latest.deb\"  \"https://discord.com/api/download?platform=linux\"" >> ~/.bashrc
-echo "  sudo dpkg -i /home/ihor/Downloads/discord-latest.deb && sudo rm /home/ihor/Downloads/discord-latest.deb" >> ~/.bashrc
-echo "  echo \"New version installed\"" >> ~/.bashrc
-echo "}" >> ~/.bashrc
-echo "" >> ~/.bashrc
-echo 'source ~/.z.sh' >> ~/.bashrc
+cat >> ~/.bashrc << 'EOF'
+
+alias k='kubectl'
+
+discord_update() {
+  curl -L -X GET --output "/home/ihor/Downloads/discord-latest.deb"  "https://discord.com/api/download?platform=linux"
+  sudo dpkg -i /home/ihor/Downloads/discord-latest.deb && sudo rm /home/ihor/Downloads/discord-latest.deb
+  echo "New version installed"
+}
+
+export HSTR_CONFIG=hicolor
+bind '"\C-r": "\C-a hstr -- \C-j"'
+
+eval "$(oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/cert.omp.json)"
+
+source ~/.z.sh
+
+EOF
 
 source ~/.bashrc

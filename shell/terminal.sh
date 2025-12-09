@@ -10,6 +10,8 @@ mv z.sh ~/.z.sh
 hstr --show-bash-configuration >> ~/.bashrc
 
 cat >> ~/.bashrc << 'EOF'
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$PATH:$HOME/.dotnet
 
 alias k='kubectl'
 

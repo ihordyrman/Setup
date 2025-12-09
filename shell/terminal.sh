@@ -11,7 +11,7 @@ hstr --show-bash-configuration >> ~/.bashrc
 
 cat >> ~/.bashrc << 'EOF'
 export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:$HOME/.dotnet
+export PATH=$HOME/.dotnet:$PATH
 
 alias k='kubectl'
 

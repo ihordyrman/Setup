@@ -1,13 +1,17 @@
 #!/bin/bash
 
-sudo add-apt-repository ppa:dotnet/backports
+curl -L https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh
+chmod +x ./dotnet-install.sh
+./dotnet-install.sh --version latest
+rm ./dotnet-install.sh
+
 sudo add-apt-repository --remove ppa:yann1ck/onedrive
 
 sudo apt-get update
 sudo apt-get install -y --no-install-recommends --no-install-suggests onedrive
-sudo apt-get install -y zlib1g dotnet-sdk-9.0
 
 sudo apt-get install -y \
+    zlib1g \
     vlc \
     curl \
     git \

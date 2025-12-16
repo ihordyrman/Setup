@@ -1,10 +1,6 @@
 ### Variables ###
 $nvimconfig = "C:\Users\Me\AppData\Local\nvim\init.vim"
 $ideavimconfig = "C:\Users\Me\.ideavimrc"
-$desktop = "C:\OneDrive\Desktop\"
-$downloads = "C:\Downloads\"
-$projects = "C:\Projects\"
-$secrets = "C:\Users\Me\AppData\Roaming\Microsoft\UserSecrets"
 $kubeconfig = "C:\Users\Me\.kube\config"
 
 ### Aliases ###
@@ -67,11 +63,6 @@ function Clean-Projects
     Get-ChildItem .\ -include bin, obj -Recurse | foreach ($_) { Remove-Item $_.fullname -Force -Recurse }
 }
 
-function Get-KubernetesResources
-{
-    kubectl get all, cm, secret, ing -A
-}
-
 function Get-KubernetesSecret
 {
     [CmdletBinding()]
@@ -83,57 +74,6 @@ function Get-KubernetesSecret
 
     $secret = kubectl get secret $name -n $namespace -o jsonpath = '{.data.*}' | ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
     return $secret
-}
-
-function Get-Guid
-{
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $false)]
-        [int]$Count = 1
-    )
-
-    for ($i=0; $i -lt $Count; $i++) {
-        [guid]::NewGuid().ToString().ToUpper()
-    }
-}
-
-function Get-ApplicationsUpdates
-{
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $false)]
-        [string[]]$Ignore = @()
-    )
-
-    $moduleName = "Microsoft.WinGet.Client"
-    $installedModule = Get-Module -ListAvailable -Name $moduleName
-    $latestModule = Find-Module -Name $moduleName
-
-    if ($installedModule)
-    {
-        if ($installedModule.Version -lt $latestModule.Version)
-        {
-            Write-Host "Module $moduleName is outdated. Updating..." -ForegroundColor Yellow
-            Update-Module -Name $moduleName -Force -Confirm:$false
-        }
-    }
-    else
-    {
-        Write-Host "Module $moduleName is not installed. Installing..." -ForegroundColor Yellow
-        Install-Module -Name $moduleName -Force -Confirm:$false
-    }
-
-    Write-Host "Checking for application updates..." -ForegroundColor Yellow
-
-    $applicationsToUpdate = Get-WinGetPackage `
-        | Where-Object { $_.IsUpdateAvailable } `
-        | Where-Object { $Ignore -notcontains $_.Id }
-
-    $applicationsToUpdate | Format-Table
-    $applicationsToUpdate | Update-WinGetPackage
-
-    Write-Host "All applications updated." -ForegroundColor Green
 }
 
 function hmm {

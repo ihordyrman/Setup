@@ -9,3 +9,5 @@ vim.keymap.set("n", "<C-Down>", "ddp", { desc = "Move line down" })
 
 -- Clear search highlighting
 vim.cmd("noh") -- or vim.cmd.noh()
+
+vim.api.nvim_create_user_command("FormatJSON", ":%!jq .", {})

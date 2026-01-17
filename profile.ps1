@@ -1,3 +1,5 @@
+### Purely for my working environments
+
 ### Variables ###
 $nvimconfig = "C:\Users\Me\AppData\Local\nvim\init.vim"
 $ideavimconfig = "C:\Users\Me\.ideavimrc"

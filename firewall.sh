@@ -49,6 +49,9 @@ echo 1 > /proc/sys/net/ipv4/conf/all/log_martians
 /sbin/iptables -A INPUT -p tcp --dport 25565 -m state --state NEW -j ACCEPT  #Minecraft
 /sbin/iptables -A INPUT -p tcp --dport 8123 -m state --state NEW -j ACCEPT   #Dynmap plugin
 
+# Calibre server rules (reserve static IP via DCHP first)
+/sbin/iptables -A INPUT -p tcp -s 192.168.31.0/24 --dport 8080 -m state --state NEW -j ACCEPT
+
 # Other rules for future use if needed.  Uncomment to activate
 # /sbin/iptables -A INPUT -p tcp --dport 80 -m state --state NEW -j ACCEPT    # http
 # /sbin/iptables -A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT   # https
